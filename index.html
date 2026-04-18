@@ -644,6 +644,16 @@ function placeBucan(){
 }
 placeBucan();
 setInterval(()=>{bd.style.opacity='0';setTimeout(()=>{placeBucan();bd.style.opacity='0.5';},500);},45000);
+// Mover al scrollear
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  if(Math.abs(s-lastScroll)>300){
+    lastScroll=s;
+    bd.style.transition='left 1s, top 1s, opacity 0.5s';
+    placeBucan();
+  }
+});
 
 // ── PREMIOS ──
 const prizes=[
