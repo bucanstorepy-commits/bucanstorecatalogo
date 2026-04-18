@@ -7,20 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#0a0a0f;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
+body{background:#0a0a0f;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;position:relative;}
 :root{--pink:#9D4EDD;--purple:#7B2FBE;--dark:#0a0a0f;--card:#12121a;--card2:#1a1a2e;}
-
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;
   background-image:radial-gradient(circle at 20% 50%,rgba(123,47,190,0.1) 0%,transparent 50%),
   radial-gradient(circle at 80% 20%,rgba(157,78,221,0.07) 0%,transparent 40%);
   pointer-events:none;z-index:0;}
+.content{position:relative;z-index:1;min-height:100vh;}
 
-.content{position:relative;z-index:1;}
-
-nav{display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 2rem;border-bottom:1px solid rgba(124,58,237,0.3);
-  background:rgba(10,10,15,0.9);backdrop-filter:blur(10px);
-  position:sticky;top:0;z-index:100;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;
+  border-bottom:1px solid rgba(124,58,237,0.3);background:rgba(10,10,15,0.9);
+  backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;}
 .logo{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:3px;}
 .logo span{color:var(--pink);}
 nav a{color:#aaa;text-decoration:none;margin-left:1.5rem;font-size:0.9rem;letter-spacing:1px;transition:color 0.2s;}
@@ -28,11 +25,13 @@ nav a:hover{color:var(--pink);}
 
 .hero{min-height:90vh;display:flex;align-items:center;padding:4rem 2rem;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;
-  background:linear-gradient(135deg,rgba(10,10,15,0.95) 40%,rgba(124,58,237,0.15) 100%);z-index:0;}
-.hero-img{position:absolute;right:0;top:0;width:55%;height:100%;
-  background:linear-gradient(to right,#0a0a0f 0%,transparent 30%),
-  url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=900') center/cover;}
-.hero-content{position:relative;z-index:1;max-width:600px;}
+  background:linear-gradient(to right,#0a0a0f 45%,transparent 100%);z-index:1;}
+.hero-img{position:absolute;right:0;top:0;width:60%;height:100%;
+  background:url('https://i.postimg.cc/tTGtrPw4/god-of-war-ragnarok-ps5-photo-mode-v0-2qem9cbgh3ma1.webp') center/cover;
+  filter:brightness(0.7) hue-rotate(230deg) saturate(1.5);}
+.hero-img::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,#0a0a0f 0%,rgba(10,10,15,0.3) 60%,rgba(123,47,190,0.2) 100%);}
+.hero-content{position:relative;z-index:2;max-width:600px;}
 .hero-tag{font-size:0.8rem;letter-spacing:4px;color:var(--pink);margin-bottom:1rem;text-transform:uppercase;}
 .hero h1{font-family:'Orbitron',monospace;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;}
 .hero h1 span{color:var(--pink);}
@@ -43,8 +42,8 @@ nav a:hover{color:var(--pink);}
 .btn-primary:hover{background:#6a1fa8;transform:translateY(-2px);}
 .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;
   padding:0.9rem 2.5rem;border-radius:50px;font-family:'Orbitron',monospace;font-size:0.85rem;
-  font-weight:700;letter-spacing:2px;text-decoration:none;border:2px solid rgba(157,78,221,0.5);
-  cursor:pointer;transition:all 0.2s;margin-left:1rem;}
+  font-weight:700;letter-spacing:2px;border:2px solid rgba(157,78,221,0.5);cursor:pointer;
+  transition:all 0.2s;margin-left:1rem;}
 .btn-outline:hover{border-color:var(--pink);color:var(--pink);}
 
 .features{padding:5rem 2rem;background:rgba(18,18,26,0.8);}
@@ -61,10 +60,13 @@ nav a:hover{color:var(--pink);}
 .feat-card .cta-btn:hover{background:#6a1fa8;}
 
 .search-section{padding:3rem 2rem 1rem;max-width:1200px;margin:0 auto;}
-.search-bar{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;background:var(--card2);border:1px solid rgba(124,58,237,0.3);border-radius:12px;padding:1rem 1.5rem;}
-.search-bar input{flex:1;min-width:200px;background:transparent;border:none;color:#fff;font-family:'Rajdhani',sans-serif;font-size:1rem;outline:none;}
+.search-bar{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;background:var(--card2);
+  border:1px solid rgba(124,58,237,0.3);border-radius:12px;padding:1rem 1.5rem;}
+.search-bar input{flex:1;min-width:200px;background:transparent;border:none;color:#fff;
+  font-family:'Rajdhani',sans-serif;font-size:1rem;outline:none;}
 .search-bar input::placeholder{color:#555;}
-.filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#aaa;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.85rem;transition:all 0.2s;}
+.filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#aaa;padding:0.4rem 1rem;
+  border-radius:20px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.85rem;transition:all 0.2s;}
 .filter-btn:hover,.filter-btn.active{background:var(--pink);border-color:var(--pink);color:#fff;}
 
 .catalog{padding:2rem;max-width:1200px;margin:0 auto;}
@@ -72,76 +74,90 @@ nav a:hover{color:var(--pink);}
 .cat-header h2{font-family:'Orbitron',monospace;font-size:1.2rem;color:#fff;}
 .count{color:#888;font-size:0.9rem;}
 .game-list{display:flex;flex-direction:column;gap:1rem;}
-.game-card{display:grid;grid-template-columns:200px 1fr auto;background:var(--card2);border:1px solid rgba(124,58,237,0.2);border-radius:12px;overflow:hidden;transition:all 0.3s;align-items:stretch;}
+.game-card{display:grid;grid-template-columns:200px 1fr auto;background:var(--card2);
+  border:1px solid rgba(124,58,237,0.2);border-radius:12px;overflow:hidden;transition:all 0.3s;align-items:stretch;}
 .game-card:hover{border-color:rgba(157,78,221,0.5);transform:translateX(4px);}
-.game-img-placeholder{width:200px;height:120px;background:linear-gradient(135deg,#1a1a2e,#2d1b69);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#7B2FBE;font-size:1.8rem;gap:4px;}
+.game-img{width:200px;height:120px;object-fit:cover;display:block;background:#16213e;}
+.game-img-placeholder{width:200px;height:120px;background:linear-gradient(135deg,#1a1a2e,#2d1b69);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#7B2FBE;font-size:1.8rem;gap:4px;}
 .game-img-placeholder span{font-size:0.65rem;color:#555;letter-spacing:1px;font-family:'Orbitron',monospace;}
 .game-info{padding:1rem 1.5rem;display:flex;flex-direction:column;justify-content:center;}
 .game-title{font-family:'Orbitron',monospace;font-size:0.95rem;margin-bottom:0.3rem;color:#fff;}
 .game-year{font-size:0.8rem;color:var(--pink);margin-bottom:0.5rem;}
 .game-desc{color:#888;font-size:0.85rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .game-tags{display:flex;gap:0.4rem;margin-top:0.6rem;flex-wrap:wrap;}
-.tag{background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;padding:0.15rem 0.5rem;border-radius:4px;font-size:0.7rem;letter-spacing:0.5px;}
+.tag{background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;
+  padding:0.15rem 0.5rem;border-radius:4px;font-size:0.7rem;letter-spacing:0.5px;}
 .game-meta{padding:1rem 1.5rem;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:0.5rem;min-width:150px;}
-.platform-badge{background:rgba(123,47,190,0.15);border:1px solid rgba(123,47,190,0.3);color:var(--pink);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:1px;}
-.price-tag{font-family:'Orbitron',monospace;font-size:0.8rem;color:#aaa;border:1px dashed rgba(124,58,237,0.4);border-radius:8px;padding:0.3rem 0.7rem;text-align:center;letter-spacing:1px;margin-top:0.3rem;}
-.wa-btn{background:#25D366;color:#fff;border:none;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:1px;transition:background 0.2s;margin-top:0.3rem;display:flex;align-items:center;gap:0.4rem;text-decoration:none;}
+.platform-badge{background:rgba(123,47,190,0.15);border:1px solid rgba(123,47,190,0.3);color:var(--pink);
+  padding:0.3rem 0.8rem;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:1px;}
+.price-tag{font-family:'Orbitron',monospace;font-size:0.8rem;color:#aaa;border:1px dashed rgba(124,58,237,0.4);
+  border-radius:8px;padding:0.3rem 0.7rem;text-align:center;letter-spacing:1px;}
+.wa-btn{background:#25D366;color:#fff;border:none;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;
+  font-family:'Rajdhani',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:1px;
+  transition:background 0.2s;display:flex;align-items:center;gap:0.4rem;text-decoration:none;}
 .wa-btn:hover{background:#1da851;}
 
 .pagination{display:flex;justify-content:center;align-items:center;gap:0.5rem;padding:3rem 2rem;}
-.page-btn{width:40px;height:40px;background:var(--card2);border:1px solid rgba(124,58,237,0.3);color:#aaa;border-radius:8px;cursor:pointer;font-family:'Orbitron',monospace;font-size:0.85rem;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.page-btn{width:40px;height:40px;background:var(--card2);border:1px solid rgba(124,58,237,0.3);color:#aaa;
+  border-radius:8px;cursor:pointer;font-family:'Orbitron',monospace;font-size:0.85rem;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;}
 .page-btn:hover,.page-btn.active{background:var(--pink);border-color:var(--pink);color:#fff;}
-.page-arrow{width:40px;height:40px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:#aaa;border-radius:8px;cursor:pointer;font-size:1.2rem;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.page-arrow{width:40px;height:40px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:#aaa;
+  border-radius:8px;cursor:pointer;font-size:1.2rem;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
 .page-arrow:hover{border-color:var(--pink);color:var(--pink);}
 .page-arrow:disabled{opacity:0.3;cursor:not-allowed;}
 
-.divider{height:2px;background:linear-gradient(to right,transparent,var(--purple),var(--pink),var(--purple),transparent);margin:0;}
+.divider{height:2px;background:linear-gradient(to right,transparent,var(--purple),var(--pink),var(--purple),transparent);}
 
 footer{background:var(--card);border-top:1px solid rgba(124,58,237,0.2);padding:2rem;text-align:center;color:#555;font-size:0.85rem;}
 footer span{color:var(--pink);}
 
+/* BOTÓN FLOTANTE WA */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:150;background:#25D366;color:#fff;
+  width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;animation:pulse-wa 2s infinite;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:32px;height:32px;fill:#fff;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 30px rgba(37,211,102,0.7);}}
+
 /* BUCAN DORADO */
-.bucan-dorado{
-  position:absolute;cursor:pointer;z-index:50;
-  font-size:1.4rem;opacity:0.55;
+.bucan-dorado{position:absolute;cursor:pointer;z-index:50;font-size:1.4rem;opacity:0.55;
   filter:sepia(1) saturate(4) hue-rotate(5deg) brightness(1.3);
-  transition:transform 0.2s,opacity 0.2s;
-  animation:float 3s ease-in-out infinite;
-  user-select:none;
-}
-.bucan-dorado:hover{opacity:1;transform:scale(1.3);}
+  animation:float 3s ease-in-out infinite;user-select:none;}
+.bucan-dorado:hover{opacity:1;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
-/* MODAL RULETA */
-.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:200;display:none;align-items:center;justify-content:center;}
+/* MODAL RASPADITA */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);
+  z-index:200;display:none;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
-.modal{background:#12121a;border:2px solid var(--purple);border-radius:20px;padding:2rem;max-width:500px;width:90%;text-align:center;position:relative;}
+.modal{background:#12121a;border:2px solid var(--purple);border-radius:20px;padding:2rem;
+  max-width:420px;width:90%;text-align:center;position:relative;}
 .modal h2{font-family:'Orbitron',monospace;font-size:1.3rem;margin-bottom:0.5rem;color:#FFD700;}
-.modal p{color:#888;font-size:0.9rem;margin-bottom:1.5rem;}
+.modal p{color:#888;font-size:0.9rem;margin-bottom:1rem;}
 .spins-left{font-family:'Orbitron',monospace;font-size:0.75rem;color:var(--pink);margin-bottom:1rem;letter-spacing:2px;}
-
-/* RULETA CANVAS */
-#wheelCanvas{border-radius:50%;border:4px solid var(--purple);margin:0 auto 1rem;display:block;}
-
-.spin-btn{background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;border:none;padding:0.8rem 2.5rem;border-radius:50px;font-family:'Orbitron',monospace;font-size:0.9rem;font-weight:900;letter-spacing:2px;cursor:pointer;transition:all 0.2s;margin-bottom:1rem;}
-.spin-btn:hover{transform:scale(1.05);}
-.spin-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
-
+.close-modal{position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:#555;font-size:1.5rem;cursor:pointer;}
+.close-modal:hover{color:#fff;}
+.no-spins{color:#ff6b6b;font-family:'Orbitron',monospace;font-size:0.85rem;margin-top:1rem;}
+.scratch-hint{color:#aaa;font-size:0.8rem;margin-bottom:0.5rem;font-style:italic;}
+.scratch-wrap{position:relative;width:260px;height:140px;margin:0 auto 1rem;border-radius:16px;overflow:hidden;border:3px solid #FFD700;}
+.scratch-prize{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1a1a2e;}
+.scratch-prize-text{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;color:#FFD700;}
+.scratch-prize-sub{font-size:0.8rem;color:#aaa;margin-top:0.3rem;padding:0 1rem;text-align:center;}
+#scratchCanvas{position:absolute;inset:0;cursor:crosshair;touch-action:none;border-radius:13px;}
 .result-box{background:#1a1a2e;border:1px solid var(--purple);border-radius:12px;padding:1rem;margin-top:1rem;display:none;}
 .result-box h3{font-family:'Orbitron',monospace;color:#FFD700;margin-bottom:0.5rem;}
 .result-box p{color:#aaa;font-size:0.85rem;}
-.result-code{font-family:'Orbitron',monospace;font-size:1.1rem;color:#fff;background:#0a0a0f;border:1px solid #FFD700;border-radius:8px;padding:0.5rem 1rem;margin:0.5rem 0;letter-spacing:3px;}
-.result-wa{background:#25D366;color:#fff;border:none;padding:0.6rem 1.5rem;border-radius:50px;font-family:'Rajdhani',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;margin-top:0.5rem;}
+.result-code{font-family:'Orbitron',monospace;font-size:1.1rem;color:#fff;background:#0a0a0f;
+  border:1px solid #FFD700;border-radius:8px;padding:0.5rem 1rem;margin:0.5rem 0;letter-spacing:3px;}
+.result-wa{background:#25D366;color:#fff;border:none;padding:0.6rem 1.5rem;border-radius:50px;
+  font-family:'Rajdhani',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;margin-top:0.5rem;}
 .result-wa:hover{background:#1da851;}
-
-.close-modal{position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:#555;font-size:1.5rem;cursor:pointer;line-height:1;}
-.close-modal:hover{color:#fff;}
-
-.no-spins{color:#ff6b6b;font-family:'Orbitron',monospace;font-size:0.85rem;margin-top:1rem;}
 
 @media(max-width:700px){
   .game-card{grid-template-columns:1fr;}
-  .game-img-placeholder{width:100%;height:120px;}
+  .game-img,.game-img-placeholder{width:100%;height:120px;}
   .game-meta{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;}
   .hero-img{display:none;}
   .hero h1{font-size:2rem;}
@@ -157,6 +173,10 @@ footer span{color:var(--pink);}
     <a href="#catalogo">Catálogo</a>
     <a href="#como-funciona">Cómo funciona</a>
     <a href="#contacto">Contacto</a>
+    <a href="https://www.instagram.com/bucanstore.py/" target="_blank" style="display:inline-flex;align-items:center;gap:0.3rem;color:#c13584;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </a>
   </div>
 </nav>
 
@@ -165,16 +185,24 @@ footer span{color:var(--pink);}
   <div class="hero-img"></div>
   <div class="hero-content">
     <p class="hero-tag">&#9679; PS4 &amp; PS5 disponible</p>
-    <h1>Catálogo de <span>Video&shy;juegos</span></h1>
+    <h1>Catálogo de <span>Videojuegos</span></h1>
     <p>Los mejores títulos disponibles para tu consola. Juegos en primaria y secundaria al mejor precio.</p>
-    <button class="btn-primary" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">COMPRA YA &#8594;</button>
-    <button class="btn-outline" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">¿CÓMO FUNCIONA?</button>
+    <p style="font-size:0.9rem;color:var(--pink);margin-bottom:2rem;letter-spacing:1px;">
+      &#10003; Los juegos de PS4 son compatibles con PS5
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <button class="btn-primary" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">COMPRA YA &#8594;</button>
+      <button class="btn-outline" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">¿CÓMO FUNCIONA?</button>
+    </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<section class="features" id="como-funciona">
+<!-- DATO PS4/PS5 -->
+<div style="text-align:center;padding:2.5rem 2rem;background:#0a0a0f;">
+  <span style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(123,47,190,0.12);border:1px solid rgba(123,47,190,0.25);border-radius:50px;padding:0.5rem 1.5rem;font-size:0.85rem;color:#aaa;">
+    🎮 ¿Tenés <strong style="color:var(--pink);margin:0 4px;">PS5</strong>? Todos los juegos PS4 son compatibles — aprovechá todo el catálogo
+  </span>
+</div>
   <h2 class="section-title">¿Qué juegos <span>elegir?</span></h2>
   <p class="section-sub">Tenemos dos modalidades disponibles para tu comodidad</p>
   <div class="features-grid">
@@ -223,69 +251,59 @@ footer span{color:var(--pink);}
 </section>
 
 <div class="pagination" id="pagination"></div>
-
 <div class="divider"></div>
 
 <footer id="contacto">
   <p style="font-family:'Orbitron',monospace;font-size:1rem;margin-bottom:0.5rem;">BUCAN<span>STORE</span></p>
-  <p>Consultas y cotizaciones &#8594; <a href="https://wa.me/595981571138" style="color:#25D366;text-decoration:none;">+595 981 571138</a></p>
+  <p>Consultas &#8594; <a href="https://wa.me/595981571138" style="color:#25D366;text-decoration:none;">+595 981 571138</a></p>
+  <p style="margin-top:0.5rem;">
+    <a href="https://www.instagram.com/bucanstore.py/" target="_blank" style="color:#c13584;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @bucanstore.py
+    </a>
+  </p>
   <p style="margin-top:0.5rem;font-size:0.75rem;">© 2025 BucanStore · Todos los derechos reservados</p>
 </footer>
-
 </div>
 
-<!-- BUCAN DORADO -->
-<div class="bucan-dorado" id="bucanDorado" onclick="openRuleta()" title="¡Encontraste al Bucan Dorado!">👾</div>
+<!-- WA FLOTANTE -->
+<a class="wa-float" href="https://wa.me/595981571138?text=Hola%20BucanStore!%20Quiero%20consultar%20sobre%20un%20juego." target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.855L.057 23.882a.5.5 0 00.61.61l6.098-1.485A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.185-1.433l-.371-.22-3.862.94.973-3.768-.242-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
 
-<!-- MODAL RULETA -->
+<!-- BUCAN DORADO -->
+<div class="bucan-dorado" id="bucanDorado" onclick="openScratch()" title="¡Encontraste al Bucan Dorado!">👾</div>
+
+<!-- MODAL RASPADITA -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <button class="close-modal" onclick="closeRuleta()">&#10005;</button>
-    <h2>&#127881; ¡BUCAN DORADO!</h2>
-    <p>¡Lo encontraste! Girá la ruleta y ganá un premio exclusivo de BucanStore.</p>
+    <button class="close-modal" onclick="closeScratch()">&#10005;</button>
+    <h2>🟡 ¡BUCAN DORADO!</h2>
+    <p>¡Lo encontraste! Raspá la tarjeta y descubrí tu premio exclusivo.</p>
     <div class="spins-left" id="spinsLeft"></div>
-    <canvas id="wheelCanvas" width="280" height="280"></canvas>
-    <div id="wheelPointer" style="font-size:2rem;margin-top:-1rem;margin-bottom:0.5rem;">&#9650;</div>
-    <button class="spin-btn" id="spinBtn" onclick="spinWheel()">&#127922; GIRAR</button>
+    <div id="scratchSection">
+      <p class="scratch-hint">✦ Raspá con el dedo o el mouse ✦</p>
+      <div class="scratch-wrap">
+        <div class="scratch-prize">
+          <div class="scratch-prize-text" id="prizeEmoji">🎁</div>
+          <div class="scratch-prize-text" id="prizeText" style="font-size:1rem;margin-top:4px;"></div>
+          <div class="scratch-prize-sub" id="prizeSub"></div>
+        </div>
+        <canvas id="scratchCanvas" width="260" height="140"></canvas>
+      </div>
+    </div>
     <div class="result-box" id="resultBox">
       <h3 id="resultTitle"></h3>
       <p id="resultDesc"></p>
-      <div class="result-code" id="resultCode"></div>
-      <a class="result-wa" id="resultWa" href="#" target="_blank">Enviar código por WhatsApp &#8594;</a>
+      <div class="result-code" id="resultCode" style="display:none;"></div>
+      <a class="result-wa" id="resultWa" href="#" target="_blank" style="display:none;">Enviar código por WhatsApp &#8594;</a>
     </div>
-    <div class="no-spins" id="noSpins" style="display:none;">Sin giros disponibles hoy. ¡Volvé mañana!</div>
+    <div class="no-spins" id="noSpins" style="display:none;">Sin intentos hoy. ¡Volvé mañana!</div>
   </div>
 </div>
 
 <script>
-// Carga imágenes desde RAWG API
-const RAWG_KEY='3e6f418c77784deaab1e2b254f79e927';
-async function loadGameImages(){
-  for(const g of games){
-    if(g.img) continue;
-    try{
-      const slug=g.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
-      const res=await fetch(`https://api.rawg.io/api/games/${slug}?key=${RAWG_KEY}`);
-      const d=await res.json();
-      if(d.background_image){
-        g.img=d.background_image;
-        // Actualizar tarjeta si ya está renderizada
-        const cards=document.querySelectorAll('.game-img-placeholder');
-        cards.forEach(el=>{
-          if(el.dataset.title===g.title){
-            const img=document.createElement('img');
-            img.className='game-img';
-            img.src=g.img;
-            img.alt=g.title;
-            img.onerror=()=>{};
-            el.replaceWith(img);
-          }
-        });
-      }
-    }catch(e){}
-  }
-}
-
+// ── JUEGOS ──
 const games=[
   {title:"A Way Out",year:"2018",desc:"Juego cooperativo exclusivo para dos jugadores. Fuga de la cárcel con historia emotiva.",tags:["accion","aventura"],platform:"PS4"},
   {title:"Among Us",year:"2018",desc:"Deduce quién es el impostor en la nave. Juego social de suspense y traición.",tags:["aventura"],platform:"PS4/PS5"},
@@ -321,40 +339,40 @@ const games=[
   {title:"Horizon: Zero Dawn",year:"2017",desc:"Caza máquinas en un mundo post-apocalíptico. Aloy en una aventura fascinante.",tags:["rpg","accion","aventura"],platform:"PS4"},
   {title:"It Takes Two",year:"2021",desc:"Co-op obligatorio para dos jugadores. Magia, creatividad y emociones a flor de piel.",tags:["aventura"],platform:"PS4/PS5"},
   {title:"Kingdom Come: Deliverance",year:"2018",desc:"RPG medieval realista en Bohemia del siglo XV. Sin magia, solo historia.",tags:["rpg","aventura"],platform:"PS4"},
-  {title:"Mafia II: Definitive Edition",year:"2020",desc:"Continúa la saga con Vito Scaletta en los años 40 y 50. Mundo abierto con historia cinematográfica.",tags:["accion","aventura"],platform:"PS4/PS5"},
-  {title:"Mafia: Definitive Edition",year:"2020",desc:"Remake del clásico de crimen organizado. Revive la historia de Tommy Angelo en Lost Heaven.",tags:["accion","aventura"],platform:"PS4/PS5"},
-  {title:"Marvel's Spider-Man: Miles Morales",year:"2020",desc:"La historia de Miles como el nuevo Spiderman en Nueva York. Visualmente impresionante.",tags:["accion","aventura"],platform:"PS4/PS5"},
-  {title:"Minecraft",year:"2011",desc:"El juego de construcción y supervivencia más popular del mundo. Creatividad sin límites.",tags:["aventura"],platform:"PS4/PS5"},
-  {title:"Mortal Kombat 1",year:"2023",desc:"Reboot de la saga con nuevo universo, nuevos personajes y combates más fluidos.",tags:["accion"],platform:"PS5"},
-  {title:"Mortal Kombat 11",year:"2019",desc:"Lucha brutal con el roster más grande de la saga. Modos historia, torre y multijugador.",tags:["accion"],platform:"PS4/PS5"},
-  {title:"NBA 2K25",year:"2024",desc:"La simulación de baloncesto más completa. MyCareer, MyTeam y competición online.",tags:["deportes"],platform:"PS4/PS5"},
-  {title:"Need for Speed Unbound",year:"2022",desc:"Carreras callejeras con estética de arte urbano. Gráficos espectaculares y persecuciones intensas.",tags:["deportes","accion"],platform:"PS5"},
+  {title:"Mafia II: Definitive Edition",year:"2020",desc:"Continúa la saga con Vito Scaletta en los años 40 y 50.",tags:["accion","aventura"],platform:"PS4/PS5"},
+  {title:"Mafia: Definitive Edition",year:"2020",desc:"Remake del clásico de crimen organizado. Revive la historia de Tommy Angelo.",tags:["accion","aventura"],platform:"PS4/PS5"},
+  {title:"Marvel's Spider-Man: Miles Morales",year:"2020",desc:"La historia de Miles como el nuevo Spiderman en Nueva York.",tags:["accion","aventura"],platform:"PS4/PS5"},
+  {title:"Minecraft",year:"2011",desc:"El juego de construcción y supervivencia más popular del mundo.",tags:["aventura"],platform:"PS4/PS5"},
+  {title:"Mortal Kombat 1",year:"2023",desc:"Reboot de la saga con nuevo universo y combates más fluidos.",tags:["accion"],platform:"PS5"},
+  {title:"Mortal Kombat 11",year:"2019",desc:"Lucha brutal con el roster más grande de la saga.",tags:["accion"],platform:"PS4/PS5"},
+  {title:"NBA 2K25",year:"2024",desc:"La simulación de baloncesto más completa. MyCareer, MyTeam y online.",tags:["deportes"],platform:"PS4/PS5"},
+  {title:"Need for Speed Unbound",year:"2022",desc:"Carreras callejeras con estética de arte urbano.",tags:["deportes","accion"],platform:"PS5"},
   {title:"Outlast",year:"2013",desc:"Terror puro en un manicomio abandonado. Sobrevivir sin armas con solo una cámara.",tags:["terror"],platform:"PS4/PS5"},
   {title:"Outlast Trials",year:"2024",desc:"Terror cooperativo. Experimentos aterradores en modo individual o con amigos.",tags:["terror"],platform:"PS5"},
-  {title:"Payday 2",year:"2013",desc:"Atracos cooperativos con planificación táctica. Cientos de misiones y builds.",tags:["accion"],platform:"PS4"},
+  {title:"Payday 2",year:"2013",desc:"Atracos cooperativos con planificación táctica. Cientos de misiones.",tags:["accion"],platform:"PS4"},
   {title:"Rainbow Six Siege",year:"2015",desc:"Shooter táctico por equipos. Destrucción ambiental y operadores únicos.",tags:["accion"],platform:"PS4/PS5"},
   {title:"Red Dead Redemption 2",year:"2018",desc:"La obra maestra del mundo abierto western. Historia épica de Arthur Morgan.",tags:["accion","aventura"],platform:"PS4"},
   {title:"Resident Evil 4 Remake",year:"2023",desc:"Remake magistral del survival horror clásico. Leon S. Kennedy en su mejor forma.",tags:["terror","accion"],platform:"PS4/PS5"},
-  {title:"Resident Evil Village",year:"2021",desc:"Ethan Winters en un pueblo tenebroso lleno de monstruos. Terror en primera persona.",tags:["terror","accion"],platform:"PS4/PS5"},
-  {title:"Sekiro: Shadows Die Twice",year:"2019",desc:"Acción samurái de FromSoftware. Combate preciso y desafiante en el Japón feudal.",tags:["accion","rpg"],platform:"PS4"},
-  {title:"Sniper Elite 5",year:"2022",desc:"Infiltración y francotirador en la Francia de la Segunda Guerra Mundial. Co-op disponible.",tags:["accion"],platform:"PS4/PS5"},
+  {title:"Resident Evil Village",year:"2021",desc:"Ethan Winters en un pueblo tenebroso lleno de monstruos.",tags:["terror","accion"],platform:"PS4/PS5"},
+  {title:"Sekiro: Shadows Die Twice",year:"2019",desc:"Acción samurái de FromSoftware. Combate preciso en el Japón feudal.",tags:["accion","rpg"],platform:"PS4"},
+  {title:"Sniper Elite 5",year:"2022",desc:"Infiltración y francotirador en la Francia de la Segunda Guerra Mundial.",tags:["accion"],platform:"PS4/PS5"},
   {title:"SnowRunner",year:"2020",desc:"Simulador de conducción off-road extrema. Camiones en terrenos imposibles.",tags:["deportes","aventura"],platform:"PS4/PS5"},
   {title:"Stray",year:"2022",desc:"Explora una ciudad cyberpunk como un gato perdido. Narrativa única y emotiva.",tags:["aventura"],platform:"PS4/PS5"},
   {title:"Tekken 7",year:"2015",desc:"El rey de los juegos de pelea 3D. Roster amplio, historia épica del clan Mishima.",tags:["accion"],platform:"PS4"},
   {title:"The Crew: Motorfest",year:"2023",desc:"Festival de carreras en Hawaii con cientos de vehículos y eventos.",tags:["deportes"],platform:"PS4/PS5"},
   {title:"The Forest",year:"2018",desc:"Survival horror en un bosque donde los sobrevivientes son cazados por caníbales.",tags:["terror","aventura"],platform:"PS4"},
-  {title:"The Last of Us Part II",year:"2020",desc:"Obra maestra narrativa. Ellie en una historia brutal de venganza y consecuencias.",tags:["accion","aventura"],platform:"PS4"},
-  {title:"The Witcher 3: Wild Hunt",year:"2015",desc:"El mejor RPG de mundo abierto. Geralt en busca de Ciri. Cientos de horas de contenido.",tags:["rpg","aventura"],platform:"PS4/PS5"},
-  {title:"UFC 5",year:"2023",desc:"La simulación de artes marciales mixtas más realista. Modos carrera y online.",tags:["deportes"],platform:"PS5"},
-  {title:"Uncharted 4",year:"2016",desc:"La aventura final de Nathan Drake. Acción cinematográfica y mundos exuberantes.",tags:["accion","aventura"],platform:"PS4"},
-  {title:"Uncharted: The Lost Legacy",year:"2017",desc:"Chloe Frazer y Nadine Ross en la India. Aventura más corta pero igual de espectacular.",tags:["accion","aventura"],platform:"PS4"},
-  {title:"Until Dawn",year:"2015",desc:"Horror interactivo donde tus decisiones determinan quién vive. Estética de película slasher.",tags:["terror"],platform:"PS4"},
-  {title:"Watch Dogs 2",year:"2016",desc:"Hackea San Francisco como Marcus Holloway. Open world tecnológico y divertido.",tags:["accion","aventura"],platform:"PS4"},
-  {title:"WRC",year:"2022",desc:"El juego oficial del Campeonato Mundial de Rally. Simulación de conducción extrema.",tags:["deportes"],platform:"PS4/PS5"},
+  {title:"The Last of Us Part II",year:"2020",desc:"Obra maestra narrativa. Ellie en una historia brutal de venganza.",tags:["accion","aventura"],platform:"PS4"},
+  {title:"The Witcher 3: Wild Hunt",year:"2015",desc:"El mejor RPG de mundo abierto. Geralt en busca de Ciri.",tags:["rpg","aventura"],platform:"PS4/PS5"},
+  {title:"UFC 5",year:"2023",desc:"La simulación de artes marciales mixtas más realista.",tags:["deportes"],platform:"PS5"},
+  {title:"Uncharted 4",year:"2016",desc:"La aventura final de Nathan Drake. Acción cinematográfica.",tags:["accion","aventura"],platform:"PS4"},
+  {title:"Uncharted: The Lost Legacy",year:"2017",desc:"Chloe Frazer y Nadine Ross en la India.",tags:["accion","aventura"],platform:"PS4"},
+  {title:"Until Dawn",year:"2015",desc:"Horror interactivo donde tus decisiones determinan quién vive.",tags:["terror"],platform:"PS4"},
+  {title:"Watch Dogs 2",year:"2016",desc:"Hackea San Francisco como Marcus Holloway.",tags:["accion","aventura"],platform:"PS4"},
+  {title:"WRC",year:"2022",desc:"El juego oficial del Campeonato Mundial de Rally.",tags:["deportes"],platform:"PS4/PS5"},
 ];
 games.sort((a,b)=>a.title.localeCompare(b.title));
 
-// ── PAGINACIÓN ──
+// ── CATÁLOGO ──
 const PER_PAGE=10;
 let currentPage=1,currentFilter='todos',searchTerm='';
 function getFiltered(){
@@ -384,7 +402,7 @@ function renderGames(){
         <span class="platform-badge">${g.platform}</span>
         <div class="price-tag">Gs. —</div>
         <a class="wa-btn" href="https://wa.me/595981571138?text=Hola!%20Me%20interesa%20el%20juego:%20${encodeURIComponent(g.title)}" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.855L.057 23.882a.5.5 0 00.61.61l6.098-1.485A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.185-1.433l-.371-.22-3.862.94.973-3.768-.242-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.855L.057 23.882a.5.5 0 00.61.61l6.098-1.485A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.185-1.433l-.371-.22-3.862.94.973-3.768-.242-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           CONSULTAR
         </a>
       </div>
@@ -404,7 +422,6 @@ function goPage(n){
   if(n<1||n>pages)return;
   currentPage=n;
   renderGames();
-loadGameImages();
   document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
 }
 function setFilter(f,btn){
@@ -418,148 +435,132 @@ renderGames();
 // ── BUCAN DORADO ──
 const bd=document.getElementById('bucanDorado');
 function placeBucan(){
-  const pageH=document.body.scrollHeight;
-  const pageW=document.body.scrollWidth;
-  const x=Math.random()*(pageW-80)*0.7+50;
-  const y=Math.random()*(pageH-200)*0.6+300;
+  const footer=document.getElementById('contacto');
+  const maxY=footer ? footer.offsetTop-50 : 3000;
+  const minY=400;
+  const maxX=document.documentElement.clientWidth-60;
+  const x=Math.random()*maxX*0.8+20;
+  const y=Math.random()*(maxY-minY)+minY;
   bd.style.left=x+'px';
   bd.style.top=y+'px';
 }
 placeBucan();
-// Cambia de lugar cada 45 segundos
 setInterval(()=>{
-  bd.style.transition='opacity 0.5s';
   bd.style.opacity='0';
+  bd.style.transition='opacity 0.5s';
   setTimeout(()=>{placeBucan();bd.style.opacity='0.55';},500);
 },45000);
 
-// ── GIROS POR DÍA ──
-const MAX_SPINS=5;
+// ── PREMIOS ──
+const prizes=[
+  {label:'😢 Mejor suerte',emoji:'😢',desc:'¡No te rindás! El Bucan Dorado vuelve a aparecer.',weight:6000,code:false},
+  {label:'🎉 10% OFF',emoji:'🎉',desc:'Descuento del 10% en tu próxima compra.',weight:2500,code:true},
+  {label:'🎉 20% OFF',emoji:'🎉',desc:'Descuento del 20% en tu próxima compra.',weight:1000,code:true},
+  {label:'🔥 30% OFF',emoji:'🔥',desc:'Descuento del 30% en tu próxima compra.',weight:490,code:true},
+  {label:'🎮 JUEGO GRATIS',emoji:'🎮',desc:'¡Ganaste un juego gratis! Contactanos por WhatsApp.',weight:10,code:true},
+];
+const TOTAL_W=10000;
+const MAX_SPINS=999;
+
 function getTodayKey(){return'bucan_spins_'+new Date().toISOString().slice(0,10);}
 function getSpinsUsed(){return parseInt(localStorage.getItem(getTodayKey())||'0');}
 function addSpin(){localStorage.setItem(getTodayKey(),getSpinsUsed()+1);}
 
-// ── PREMIOS (pesos sobre 10000) ──
-const prizes=[
-  {label:'😢 Mejor suerte',desc:'¡No te rindas! El Bucan Dorado vuelve a aparecer.',weight:6000,code:false,color:'#4a4a6a'},
-  {label:'🎉 10% OFF',desc:'Descuento del 10% en tu próxima compra.',weight:2000,code:true,color:'#1a6b3a'},
-  {label:'🎉 20% OFF',desc:'Descuento del 20% en tu próxima compra.',weight:1000,code:true,color:'#1a5a8a'},
-  {label:'🔥 30% OFF',desc:'Descuento del 30% en tu próxima compra.',weight:500,code:true,color:'#7B2FBE'},
-  {label:'💥 50% OFF',desc:'¡Mitad de precio en tu próximo juego!',weight:490,code:true,color:'#b85c00'},
-  {label:'🎮 JUEGO GRATIS',desc:'¡Ganaste un juego gratis! Contactanos por WhatsApp.',weight:10,code:true,color:'#8B0000'},
-];
-const TOTAL_W=10000;
-
-function spinResult(){
-  const r=Math.floor(Math.random()*TOTAL_W);
-  let acc=0;
-  for(const p of prizes){acc+=p.weight;if(r<acc)return p;}
-  return prizes[0];
+function genCode(){
+  const vendedores=['WHBU O','WHBU L','WHBU N','WHBU P'];
+  const v=vendedores[Math.floor(Math.random()*vendedores.length)];
+  const n=String(Math.floor(Math.random()*1000)).padStart(3,'0');
+  return v+n;
 }
 
-function genCode(label){
-  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let c='BUCAN-';
-  for(let i=0;i<4;i++) c+=chars[Math.floor(Math.random()*chars.length)];
-  return c;
-}
+// ── RASPADITA ──
+let scratchDone=false;
+let currentPrize=null;
 
-// ── CANVAS RULETA ──
-const canvas=document.getElementById('wheelCanvas');
-const ctx=canvas.getContext('2d');
-const cx=140,cy=140,r=130;
-const colors=['#4a4a6a','#1a6b3a','#1a5a8a','#7B2FBE','#b85c00','#8B0000'];
-const labels=['Sin suerte','10% OFF','20% OFF','30% OFF','50% OFF','¡GRATIS!'];
-const sliceAngle=(2*Math.PI)/prizes.length;
-let currentAngle=0,spinning=false;
-
-function drawWheel(rot){
-  ctx.clearRect(0,0,280,280);
-  prizes.forEach((p,i)=>{
-    const start=rot+i*sliceAngle;
-    const end=start+sliceAngle;
-    ctx.beginPath();ctx.moveTo(cx,cy);
-    ctx.arc(cx,cy,r,start,end);ctx.closePath();
-    ctx.fillStyle=colors[i];ctx.fill();
-    ctx.strokeStyle='#0a0a0f';ctx.lineWidth=2;ctx.stroke();
-    ctx.save();ctx.translate(cx,cy);ctx.rotate(start+sliceAngle/2);
-    ctx.textAlign='right';ctx.fillStyle='#fff';
-    ctx.font='bold 11px Orbitron,monospace';
-    ctx.fillText(labels[i],r-8,4);ctx.restore();
-  });
-  // Centro
-  ctx.beginPath();ctx.arc(cx,cy,18,0,2*Math.PI);
-  ctx.fillStyle='#FFD700';ctx.fill();
-  ctx.strokeStyle='#0a0a0f';ctx.lineWidth=2;ctx.stroke();
-}
-drawWheel(0);
-
-function openRuleta(){
+function openScratch(){
   document.getElementById('modalOverlay').classList.add('open');
-  updateSpinsUI();
+  updateUI();
   document.getElementById('resultBox').style.display='none';
+  if(getSpinsUsed()<MAX_SPINS) initScratch();
 }
-function closeRuleta(){document.getElementById('modalOverlay').classList.remove('open');}
+function closeScratch(){document.getElementById('modalOverlay').classList.remove('open');}
 
-function updateSpinsUI(){
-  const used=getSpinsUsed();
-  const left=MAX_SPINS-used;
-  document.getElementById('spinsLeft').textContent=`Giros disponibles hoy: ${left} / ${MAX_SPINS}`;
-  const btn=document.getElementById('spinBtn');
+function updateUI(){
+  const used=getSpinsUsed(),left=MAX_SPINS-used;
+  document.getElementById('spinsLeft').textContent=`Intentos disponibles hoy: ${left} / ${MAX_SPINS}`;
+  const sec=document.getElementById('scratchSection');
   const noS=document.getElementById('noSpins');
-  if(left<=0){btn.style.display='none';noS.style.display='block';}
-  else{btn.style.display='inline-block';noS.style.display='none';}
+  if(left<=0){sec.style.display='none';noS.style.display='block';}
+  else{sec.style.display='block';noS.style.display='none';}
 }
 
-function spinWheel(){
-  const used=getSpinsUsed();
-  if(used>=MAX_SPINS||spinning)return;
-  spinning=true;
-  document.getElementById('spinBtn').disabled=true;
+function initScratch(){
+  // Sortear premio
+  const rand=Math.floor(Math.random()*TOTAL_W);
+  let acc=0,idx=0;
+  for(let i=0;i<prizes.length;i++){acc+=prizes[i].weight;if(rand<acc){idx=i;break;}}
+  currentPrize=prizes[idx];
+  scratchDone=false;
+
+  // Mostrar premio oculto debajo
+  document.getElementById('prizeEmoji').textContent=currentPrize.emoji;
+  document.getElementById('prizeText').textContent=currentPrize.label.replace(/^\S+\s/,'');
+  document.getElementById('prizeSub').textContent=currentPrize.desc;
   document.getElementById('resultBox').style.display='none';
 
-  // Elegir premio
-  const r=Math.floor(Math.random()*TOTAL_W);
-  let acc=0,prizeIdx=0;
-  for(let i=0;i<prizes.length;i++){acc+=prizes[i].weight;if(r<acc){prizeIdx=i;break;}}
-  const prize=prizes[prizeIdx];
+  // Dibujar capa de raspadita
+  const c=document.getElementById('scratchCanvas');
+  const x=c.getContext('2d');
+  x.clearRect(0,0,260,140);
+  x.globalCompositeOperation='source-over';
 
-  // Calcular ángulo final para que el puntero (arriba, -PI/2) apunte al sector ganador
-  const sliceStart=prizeIdx*sliceAngle;
-  const sliceMid=sliceStart+sliceAngle/2;
-  // El puntero está en la parte superior (ángulo -PI/2 en canvas)
-  // Queremos que sliceMid quede en -PI/2 => rotación = -PI/2 - sliceMid
-  const targetAngle=-Math.PI/2-sliceMid;
-  // Añadir vueltas extra para efecto de giro
-  const extraSpins=(5+Math.floor(Math.random()*3))*2*Math.PI;
-  // Normalizar currentAngle y calcular la diferencia
-  const normalized=((currentAngle%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
-  const target=((targetAngle%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
-  let diff=target-normalized;
-  if(diff>=0)diff-=2*Math.PI; // siempre girar hacia adelante
-  const totalRot=diff-extraSpins;
+  // Fondo plateado
+  const g=x.createLinearGradient(0,0,260,140);
+  g.addColorStop(0,'#999');g.addColorStop(0.5,'#ccc');g.addColorStop(1,'#999');
+  x.fillStyle=g;x.fillRect(0,0,260,140);
 
-  const duration=4500;
-  const start=performance.now();
-  const startAngle=currentAngle;
-
-  function animate(now){
-    const t=Math.min((now-start)/duration,1);
-    const ease=1-Math.pow(1-t,4);
-    currentAngle=startAngle+totalRot*ease;
-    drawWheel(currentAngle);
-    if(t<1){requestAnimationFrame(animate);}
-    else{
-      currentAngle=startAngle+totalRot;
-      drawWheel(currentAngle);
-      spinning=false;
-      addSpin();
-      updateSpinsUI();
-      showResult(prize);
-      document.getElementById('spinBtn').disabled=false;
-    }
+  // Textura puntitos
+  for(let i=0;i<200;i++){
+    x.fillStyle=`rgba(0,0,0,0.05)`;
+    x.beginPath();x.arc(Math.random()*260,Math.random()*140,Math.random()*3,0,2*Math.PI);x.fill();
   }
-  requestAnimationFrame(animate);
+
+  // Texto
+  x.fillStyle='#555';x.font='bold 20px Orbitron,monospace';x.textAlign='center';
+  x.fillText('¡RASPÁ AQUÍ!',130,60);
+  x.font='13px Rajdhani,sans-serif';x.fillStyle='#666';
+  x.fillText('BucanStore 🟡',130,90);
+
+  // Eventos
+  let drawing=false;
+  c.onmousedown=()=>{drawing=true;};
+  c.onmouseup=()=>{drawing=false;checkReveal(x,c);};
+  c.onmouseleave=()=>{drawing=false;};
+  c.onmousemove=e=>{if(!drawing||scratchDone)return;doScratch(x,e.offsetX,e.offsetY);checkReveal(x,c);};
+  c.ontouchstart=e=>{drawing=true;e.preventDefault();};
+  c.ontouchend=()=>{drawing=false;checkReveal(x,c);};
+  c.ontouchmove=e=>{
+    if(!drawing||scratchDone)return;e.preventDefault();
+    const r=c.getBoundingClientRect(),t=e.touches[0];
+    doScratch(x,t.clientX-r.left,t.clientY-r.top);checkReveal(x,c);
+  };
+}
+
+function doScratch(x,px,py){
+  x.globalCompositeOperation='destination-out';
+  x.beginPath();x.arc(px,py,24,0,2*Math.PI);x.fill();
+}
+
+function checkReveal(x,c){
+  if(scratchDone)return;
+  const d=x.getImageData(0,0,260,140).data;
+  let t=0;
+  for(let i=3;i<d.length;i+=4) if(d[i]<128) t++;
+  if(t/(260*140)>0.5){
+    scratchDone=true;
+    x.clearRect(0,0,260,140);
+    addSpin();updateUI();showResult(currentPrize);
+  }
 }
 
 function showResult(prize){
@@ -569,15 +570,13 @@ function showResult(prize){
   const codeEl=document.getElementById('resultCode');
   const waEl=document.getElementById('resultWa');
   if(prize.code){
-    const code=genCode(prize.label);
-    codeEl.textContent=code;
-    codeEl.style.display='block';
-    const msg=`Hola BucanStore! Giré la ruleta del Bucan Dorado y gané: ${prize.label}. Mi código es: ${code}`;
+    const code=genCode();
+    codeEl.textContent=code;codeEl.style.display='block';
+    const msg=`Hola BucanStore! Raspé la tarjeta del Bucan Dorado y gané: ${prize.label}. Mi código es: ${code}`;
     waEl.href=`https://wa.me/595981571138?text=${encodeURIComponent(msg)}`;
     waEl.style.display='inline-block';
   } else {
-    codeEl.style.display='none';
-    waEl.style.display='none';
+    codeEl.style.display='none';waEl.style.display='none';
   }
   box.style.display='block';
 }
